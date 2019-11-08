@@ -43,15 +43,30 @@ void loop() {
  * SerialOutput sketch
  * Print numbers to the serial port
 */
-void setup()
-{
+
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+
   Serial.begin(9600); // send and receive at 9600 baud
+  // initialize digital pin LED_BUILTIN as an output.
+  pinMode(LED_BUILTIN, OUTPUT);
 }
+
+
 
 int number = 0;
 
 void loop()
 {
+  digitalWrite(LED_BUILTIN, HIGH);   // turn the LED on (HIGH is the voltage level)
+  delay(1000);                 
+  Serial.print("test print !!!!!!!!");
+  // wait for a second
+  digitalWrite(LED_BUILTIN, LOW);    // turn the LED off by making the voltage LOW
+  delay(2000);                       // wait for a second
+
+  
   Serial.print("The number is ");
   Serial.println(number);    // print the number
 
